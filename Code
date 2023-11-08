@@ -1,0 +1,20 @@
+# I-to-B and distance parameters in neural tissue
+
+# Run in PyCharm Environment
+
+import math
+
+# Input values (this eigenvalues can be determined and inserted by machine or user to predict the simulation)
+B = float(input("Enter the MF (in femtotesla): "))
+
+# In this section, we have assumed the distance value to be 5000 nm or 5 µm (based on the paper data, reference #13) 
+r = float(input("Enter the distance from the neuron (in nanometers): "))
+
+# Define the μ of neural tissue in T·m/A (Our last calculations on paper determined this value, based on data published in cited paper)
+mu_0 = 3.14 * 10**-7  # Value of μ₀ in T·m/A
+
+# Calculate the current in Amperes (we assumed that if there are distinct MF data from a neuron measured by sensors, such as NFIF, this code calculate the I eigenvalue for that neuron)
+I = (B * 2 * math.pi * r * 10**-9) / mu_0  # Multiply by 10^-18 to convert femto to pico
+
+# Output the result
+print("The electric current (I) calculated is:", I, "picoamperes")
